@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrightCredit – Tín dụng sáng suốt, vay thông minh, sống tự tin!</title>
+    <!-- Tải Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Cài đặt cấu hình Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'bright-primary': '#4f46e5', // Indigo-600 for trust
+                        'bright-accent': '#10b981', // Emerald-500 for clarity
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 4px;
+        }
+        
+        /* Custom style for the hero background (optional: use a subtle gradient) */
+        .hero-bg {
+            background: linear-gradient(135deg, #4f46e5aa, #1d4ed8aa);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans text-gray-800 antialiased">
+
+    <!-- Header / Navigation -->
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo/Brand -->
+                <a href="#" class="flex-shrink-0 flex items-center">
+                    <svg class="h-8 w-8 text-bright-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19l12 3M9 19c0 1.105-1.121 2-2.5 2s-2.5-.895-2.5-2 1.121-2 2.5-2 2.5.895 2.5 2zM12 20.941c1.233 0 2.25-.94 2.25-2.072 0-.323-.09-.63-.255-.907L16.5 16.5m-4.5 4.441L7.5 19m4.5 1.941c1.233 0 2.25-.94 2.25-2.072S13.233 16.897 12 16.897m-4.5 4.441c-1.379 0-2.5-.895-2.5-2s1.121-2 2.5-2 2.5.895 2.5 2z"/>
+                    </svg>
+                    <span class="ml-2 text-xl font-extrabold text-bright-primary tracking-tight">BrightCredit</span>
+                </a>
+                
+                <!-- Desktop Nav (Hidden on Mobile for simplicity) -->
+                <nav class="hidden md:flex space-x-6 text-sm font-medium">
+                    <a href="#" class="text-gray-600 hover:text-bright-primary transition duration-150">Dịch vụ</a>
+                    <a href="#" class="text-gray-600 hover:text-bright-primary transition duration-150">Vay Cá nhân</a>
+                    <a href="#" class="text-gray-600 hover:text-bright-primary transition duration-150">Vay SME</a>
+                    <a href="#" class="text-gray-600 hover:text-bright-primary transition duration-150">Về chúng tôi</a>
+                    <button class="px-3 py-1 bg-bright-primary text-white rounded-full text-xs hover:bg-indigo-700 transition duration-150 shadow-md">
+                        Đăng ký ngay
+                    </button>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden p-2 text-gray-600 hover:text-bright-primary rounded-md focus:outline-none focus:ring-2 focus:ring-bright-primary" aria-expanded="false">
+                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section & Loan Calculator -->
+    <main>
+        <div class="hero-bg py-16 sm:py-24 lg:py-32 text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Text Content -->
+                <div class="lg:max-w-lg">
+                    <span class="text-bright-accent font-semibold uppercase tracking-wider text-sm">BrightCredit</span>
+                    <h1 class="mt-2 text-4xl sm:text-5xl font-extrabold tracking-tight">
+                        Tín dụng sáng suốt, <br class="hidden sm:inline" />vay thông minh, sống tự tin!
+                    </h1>
+                    <p class="mt-4 text-lg text-indigo-100">
+                        Giải pháp tài chính tiêu dùng minh bạch và nhanh chóng. Dễ dàng tiếp cận nguồn vốn với quy trình thẩm định tự động, rõ ràng.
+                    </p>
+                    <div class="mt-8">
+                        <a href="#calculator" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-lg text-bright-primary bg-white hover:bg-indigo-50 transition duration-300 transform hover:scale-105">
+                            Tính toán khoản vay của bạn
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Loan Calculator Card -->
+                <div id="calculator" class="bg-white p-6 sm:p-8 rounded-xl shadow-2xl text-gray-800">
+                    <h2 class="text-2xl font-bold mb-6 text-bright-primary">Công cụ Ước tính Khoản vay</h2>
+                    
+                    <div class="space-y-6">
+                        <!-- Loan Amount Input -->
+                        <div>
+                            <label for="loanAmount" class="block text-sm font-medium text-gray-600">Số tiền muốn vay (VNĐ)</label>
+                            <input type="range" id="loanAmount" min="10000000" max="100000000" step="1000000" value="30000000" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer range-lg accent-bright-primary">
+                            <p class="mt-2 text-lg font-semibold text-bright-primary">
+                                <span id="amountDisplay">30,000,000</span> VNĐ
+                            </p>
+                        </div>
+                        
+                        <!-- Loan Term Input -->
+                        <div>
+                            <label for="loanTerm" class="block text-sm font-medium text-gray-600">Thời gian vay (Tháng)</label>
+                            <input type="range" id="loanTerm" min="6" max="36" step="3" value="12" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer range-lg accent-bright-primary">
+                            <p class="mt-2 text-lg font-semibold text-bright-primary">
+                                <span id="termDisplay">12</span> Tháng
+                            </p>
+                        </div>
+                        
+                        <!-- Rate Information (for transparency) -->
+                        <div class="bg-indigo-50 p-4 rounded-lg">
+                            <p class="text-sm text-gray-700">
+                                <span class="font-bold text-bright-primary">Lãi suất tham khảo:</span> 1.5%/tháng (tương đương 18% APR). Lãi suất thực tế có thể thay đổi tùy thuộc vào điểm tín dụng Bright Scoring.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Calculation Result -->
+                    <div class="mt-6 pt-6 border-t border-gray-100">
+                        <div class="flex justify-between items-center mb-4">
+                            <p class="text-xl font-semibold text-gray-700">Khoản thanh toán hàng tháng (Ước tính)</p>
+                            <p class="text-3xl font-extrabold text-bright-accent">
+                                <span id="monthlyPayment">4,000,000</span> VNĐ
+                            </p>
+                        </div>
+                        <button class="w-full px-6 py-3 bg-bright-primary text-white font-semibold rounded-lg shadow-xl hover:bg-indigo-700 transition duration-300 transform hover:scale-[1.01]">
+                            Tôi muốn vay khoản này
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Why BrightCredit Section -->
+        <section class="py-16 sm:py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                        Vì sao chọn BrightCredit?
+                    </h2>
+                    <p class="mt-4 text-xl text-gray-600">
+                        Cam kết mang đến giải pháp tài chính minh bạch và hiệu quả nhất.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+                    <!-- Feature 1: Minh Bạch -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300 border-t-4 border-bright-primary">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-bright-primary text-white">
+                            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.103A2.191 2.191 0 0121 12a9 9 0 11-18 0 9 9 0 0115.618-7.897z" />
+                            </svg>
+                        </div>
+                        <h3 class="mt-4 text-xl font-bold text-gray-900">Minh bạch Tuyệt đối</h3>
+                        <p class="mt-2 text-gray-500">
+                            Mọi chi phí, lãi suất (APR) và lịch trả nợ đều được công bố rõ ràng trước khi ký hợp đồng. Không có phí ẩn.
+                        </p>
+                    </div>
+
+                    <!-- Feature 2: Tốc Độ -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300 border-t-4 border-bright-primary">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-bright-primary text-white">
+                            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                        </div>
+                        <h3 class="mt-4 text-xl font-bold text-gray-900">Giải ngân Nhanh chóng</h3>
+                        <p class="mt-2 text-gray-500">
+                            Hệ thống Bright Scoring tự động thẩm định, giúp giải ngân khoản vay trong vòng 24 giờ qua tài khoản/ví điện tử.
+                        </p>
+                    </div>
+
+                    <!-- Feature 3: An Toàn -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300 border-t-4 border-bright-primary">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-bright-primary text-white">
+                            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                            </svg>
+                        </div>
+                        <h3 class="mt-4 text-xl font-bold text-gray-900">Bảo mật Tối đa</h3>
+                        <p class="mt-2 text-gray-500">
+                            Áp dụng công nghệ Fintech hiện đại và tuân thủ quy định NHNN, đảm bảo thông tin cá nhân của bạn được an toàn.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div>
+                    <h4 class="text-lg font-semibold mb-4 text-bright-accent">BrightCredit</h4>
+                    <p class="text-sm text-gray-400">Tín dụng sáng suốt, vay thông minh, sống tự tin!</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Sản phẩm</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-white transition duration-150">Vay Cá nhân</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-150">Vay SME</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-150">Thẻ Trả góp</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Hỗ trợ</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-white transition duration-150">Quy trình bán hàng</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-150">Chính sách Bảo mật</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-150">Hỏi đáp (FAQ)</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Liên hệ</h4>
+                    <p class="text-sm text-gray-400">Hotline: 0898504190</p>
+                    <!-- Cập nhật: Thay đổi từ Email thành Website theo yêu cầu mới -->
+                    <p class="text-sm text-gray-400 mt-1">Website: www.bightcredit.vn</p>
+                    <!-- Cập nhật: Địa chỉ mới tại Hà Nội -->
+                    <p class="text-sm text-gray-400 mt-1">Trụ sở: 31 Phan Đình Giót, Phương Liệt, Thanh Xuân, Hà Nội</p>
+                </div>
+            </div>
+            
+            <div class="mt-10 border-t border-gray-700 pt-6 text-center">
+                <p class="text-sm text-gray-500">&copy; 2024 BrightCredit. Bảo lưu mọi quyền. Tuân thủ quy định Ngân hàng Nhà nước Việt Nam.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Loan Calculator Logic -->
+    <script>
+        // Hàm tính toán khoản thanh toán hàng tháng (Amortization Formula)
+        function calculateMonthlyPayment(principal, annualRate, termInMonths) {
+            // Lãi suất tháng (r)
+            const monthlyRate = annualRate / 12 / 100;
+
+            if (monthlyRate === 0) {
+                // Tránh chia cho 0 nếu lãi suất là 0
+                return principal / termInMonths;
+            }
+
+            // M = P [ r(1 + r)^n ] / [ (1 + r)^n – 1]
+            const numerator = monthlyRate * Math.pow(1 + monthlyRate, termInMonths);
+            const denominator = Math.pow(1 + monthlyRate, termInMonths) - 1;
+
+            return principal * (numerator / denominator);
+        }
+
+        // Lãi suất tham khảo (18% / năm)
+        const REFERENCE_APR = 18.0;
+
+        // Lấy các phần tử DOM
+        const amountRange = document.getElementById('loanAmount');
+        const amountDisplay = document.getElementById('amountDisplay');
+        const termRange = document.getElementById('loanTerm');
+        const termDisplay = document.getElementById('termDisplay');
+        const paymentDisplay = document.getElementById('monthlyPayment');
+
+        // Hàm định dạng số
+        function formatNumber(number) {
+            return number.toLocaleString('vi-VN', { maximumFractionDigits: 0 });
+        }
+
+        // Hàm cập nhật tất cả (Display + Calculation)
+        function updateCalculator() {
+            const principal = parseFloat(amountRange.value);
+            const term = parseInt(termRange.value, 10);
+
+            // Cập nhật giá trị hiển thị
+            amountDisplay.textContent = formatNumber(principal);
+            termDisplay.textContent = term;
+
+            // Tính toán
+            const monthlyPayment = calculateMonthlyPayment(principal, REFERENCE_APR, term);
+
+            // Cập nhật kết quả thanh toán
+            if (isFinite(monthlyPayment) && monthlyPayment > 0) {
+                paymentDisplay.textContent = formatNumber(Math.round(monthlyPayment));
+            } else {
+                paymentDisplay.textContent = '0';
+            }
+        }
+
+        // Thêm sự kiện lắng nghe
+        amountRange.addEventListener('input', updateCalculator);
+        termRange.addEventListener('input', updateCalculator);
+
+        // Chạy lần đầu tiên khi tải trang
+        document.addEventListener('DOMContentLoaded', updateCalculator);
+
+    </script>
+</body>
+</html>
